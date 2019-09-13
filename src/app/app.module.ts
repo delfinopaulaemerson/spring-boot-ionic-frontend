@@ -1,3 +1,5 @@
+import { ProfilePage } from './../pages/profile/profile';
+import { ClienteService } from './../services/domain/cliente.service';
 import { StorageService } from './../services/storage.services';
 import { AuthService } from './../services/auth.service';
 import { ErrorInterceptorProvider } from './../interceptors/error-interceptor';
@@ -21,7 +23,8 @@ import { CategoriaService } from '../services/domain/categoria.service';
     MyApp,
     HomePage,
     ListPage,
-    CategoriasPage
+    CategoriasPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { CategoriaService } from '../services/domain/categoria.service';
     MyApp,
     HomePage,
     ListPage,
-     CategoriasPage
+     CategoriasPage,
+     ProfilePage
   ],
   providers: [
     StatusBar,
@@ -42,6 +46,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
+    ClienteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
