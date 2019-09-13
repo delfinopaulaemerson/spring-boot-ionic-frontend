@@ -1,3 +1,4 @@
+import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { CategoriasPage } from './../categorias/categorias';
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
@@ -7,6 +8,11 @@ import { NavController, MenuController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+  creds: CredenciaisDTO = {
+    email: "",
+    senha: ""
+  };
 
   constructor(public navCtrl: NavController, public menu:MenuController) {
 
@@ -24,6 +30,9 @@ export class HomePage {
   
     //habilitando o menu da tela principal  
   ionViewDidLeave() {
+    console.log(this.creds.email);
+    console.log(this.creds.senha);
+    
       this.menu.swipeEnable(true);
     }
 

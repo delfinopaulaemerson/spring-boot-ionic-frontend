@@ -4,9 +4,9 @@
   <img src="assets/imgs/batman.png" style="width: 50px; margin-left: 59px;">
 
 <form>
-  <ion-input placeholder="Email" name="email"></ion-input>
+  <ion-input placeholder="Email" [(ngModel)]="creds.email"  name="email"></ion-input>
 
-  <ion-input placeholder="Senha" name="senha"></ion-input>
+  <ion-input placeholder="Senha" [(ngModel)]="creds.senha"  name="senha"></ion-input>
 
  <button ion-button block (click)="login()" >Login</button>
 </form>
