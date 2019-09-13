@@ -2,7 +2,7 @@ import { AuthService } from './../../services/auth.service';
 import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { CategoriasPage } from './../categorias/categorias';
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { NavController, MenuController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -15,12 +15,23 @@ export class HomePage {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public menu:MenuController, public auth: AuthService) {
+  constructor(public navCtrl: NavController, public menu:MenuController, public auth: AuthService,private alertCtrl: AlertController) {
 
   }
 
   //navegacao para tela de categorias
   public login(){
+
+    if(this.creds.email === '' || this.creds.senha === ''){
+      let alert = this.alertCtrl.create({
+        title: 'Error Login!',
+        subTitle: 'Email our Senha incorreto(s).',
+        buttons:['OK']
+      });
+      alert.present();
+      return;
+    }
+
     this.auth.auyhenticate(this.creds).subscribe(response =>{
       this.auth.sucessFullLogin(response.headers.get('Authorization'));
       this.navCtrl.setRoot(CategoriasPage);
