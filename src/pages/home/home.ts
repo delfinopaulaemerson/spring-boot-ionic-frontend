@@ -12,6 +12,7 @@ export class HomePage {
 
   }
 
+  //navegacao para tela de categorias
   public login(){
     this.navCtrl.setRoot(CategoriasPage);
   }
