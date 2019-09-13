@@ -1,3 +1,4 @@
+import { LogoutPage } from './../pages/logout/logout';
 import { ProfilePage } from './../pages/profile/profile';
 import { CategoriasPage } from './../pages/categorias/categorias';
 import { Component, ViewChild } from '@angular/core';
@@ -23,7 +24,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Categorias', component: CategoriasPage },
-      { title: 'Profile', component: ProfilePage }
+      { title: 'Profile', component: ProfilePage },
+      { title: 'Logout', component: LogoutPage }
+      
     ];
 
   }

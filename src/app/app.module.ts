@@ -1,3 +1,4 @@
+import { LogoutPage } from './../pages/logout/logout';
 import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
 import { ProfilePage } from './../pages/profile/profile';
 import { ClienteService } from './../services/domain/cliente.service';
@@ -23,7 +24,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    LogoutPage,
     CategoriasPage,
     ProfilePage
   ],
@@ -36,7 +37,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    LogoutPage,
      CategoriasPage,
      ProfilePage
   ],
