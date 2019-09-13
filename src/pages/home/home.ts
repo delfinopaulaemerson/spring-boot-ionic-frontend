@@ -3,6 +3,7 @@ import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { CategoriasPage } from './../categorias/categorias';
 import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController } from 'ionic-angular';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-home',
@@ -32,23 +33,27 @@ export class HomePage {
       return;
     }
 
-    this.auth.authenticate(this.creds).subscribe(response =>{
-      this.auth.sucessFullLogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot(CategoriasPage);
-    },
-    error =>{}
-    );
-
+    //this.auth.authenticate(this.creds).subscribe(response =>{
+      //this.auth.sucessFullLogin(response.headers.get('Authorization'));
+     
+   // },
+    //error =>{}
+    //);
+    this.navCtrl.setRoot(CategoriasPage);
   }
 
   ionViewDidEnter(){
-     this.auth.refreshToken().subscribe(response =>{
-      this.auth.sucessFullLogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot(CategoriasPage);
-    },
-    error =>{}
-    );
+     //this.auth.refreshToken().subscribe(response =>{
+      //this.auth.sucessFullLogin(response.headers.get('Authorization'));
+      //this.navCtrl.setRoot(CategoriasPage);
+    //},
+   // error =>{}
+   // );
 
+  }
+
+  public signUp(){
+    this.navCtrl.push(SignupPage);
   }
 
   //desabilitando o menu da tela principal  

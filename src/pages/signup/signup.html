@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form>
+    <ion-item>
+      <ion-input placeholder="Nome*"  name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Email*"  name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Senha*"  name="senha" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="CPF ou CNPJ*"  name="cpfoucnpj"></ion-input>
+    </ion-item>
+    <ion-list radio-group name="tipo">
+      <ion-list-header style="text-align: center">
+        Tipo de cliente
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Pessoa física</ion-label>
+        <ion-radio checked="true" value="1"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pessoa jurídica</ion-label>
+        <ion-radio value="2"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <ion-list-header style="text-align: center">
+      Endereço
+    </ion-list-header>
+    <ion-item>
+    <ion-input placeholder="Logradouro*"  name="logradouro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Número*"  name="numero"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Complemento*"  name="complemento"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Bairro*"  name="bairro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="CEP*"  name="cep"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Telefone1*"  name="telefonr1"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-input placeholder="Telefone2*"  name="Telefone2"></ion-input>
+  </ion-item>
+    <button ion-button block type="submit" >Criar conta</button>
+  </form>
+</ion-content>
