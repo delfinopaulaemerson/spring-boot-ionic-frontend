@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { CategoriasPage } from './../categorias/categorias';
 import { Component } from '@angular/core';
@@ -14,13 +15,19 @@ export class HomePage {
     senha: ""
   };
 
-  constructor(public navCtrl: NavController, public menu:MenuController) {
+  constructor(public navCtrl: NavController, public menu:MenuController, public auth: AuthService) {
 
   }
 
   //navegacao para tela de categorias
   public login(){
-    this.navCtrl.setRoot(CategoriasPage);
+    this.auth.auyhenticate(this.creds).subscribe(response =>{
+      console.log(response.headers.get('Authorization'));
+      this.navCtrl.setRoot(CategoriasPage);
+    },
+    error =>{}
+    );
+
   }
 
   //desabilitando o menu da tela principal  
@@ -30,10 +37,7 @@ export class HomePage {
   
     //habilitando o menu da tela principal  
   ionViewDidLeave() {
-    console.log(this.creds.email);
-    console.log(this.creds.senha);
-    
-      this.menu.swipeEnable(true);
+    this.menu.swipeEnable(true);
     }
 
 }
