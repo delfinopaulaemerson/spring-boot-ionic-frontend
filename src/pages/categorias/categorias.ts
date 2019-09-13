@@ -27,10 +27,7 @@ export class CategoriasPage {
       this.items = data;
       console.log(data);
     },
-      error =>{
-        console.log(error);
-        throw error;
-    });
+      error =>{});
    
   }
 

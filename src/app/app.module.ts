@@ -1,3 +1,4 @@
+import { ErrorInterceptorProvider } from './../interceptors/error-interceptor';
 import { CategoriasPage } from './../pages/categorias/categorias';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -36,6 +37,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
     StatusBar,
     SplashScreen,
     CategoriaService,
+    ErrorInterceptorProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
