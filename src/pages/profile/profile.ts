@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { StorageService } from './../../services/storage.services';
 import { Component } from '@angular/core';
@@ -23,7 +24,11 @@ export class ProfilePage {
         this.service.findByEmail(localUser.email).subscribe(response => {
           this.cliente = response;
         },
-        error =>{});
+        error =>{
+          if(error.status == 403){
+            this.navCtrl.setRoot(HomePage);
+          }
+        });
    }
   }
 
