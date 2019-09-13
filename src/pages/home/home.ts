@@ -32,7 +32,17 @@ export class HomePage {
       return;
     }
 
-    this.auth.auyhenticate(this.creds).subscribe(response =>{
+    this.auth.authenticate(this.creds).subscribe(response =>{
+      this.auth.sucessFullLogin(response.headers.get('Authorization'));
+      this.navCtrl.setRoot(CategoriasPage);
+    },
+    error =>{}
+    );
+
+  }
+
+  ionViewDidEnter(){
+     this.auth.refreshToken().subscribe(response =>{
       this.auth.sucessFullLogin(response.headers.get('Authorization'));
       this.navCtrl.setRoot(CategoriasPage);
     },

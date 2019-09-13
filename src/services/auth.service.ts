@@ -11,7 +11,8 @@ export class AuthService{
     jwtHelper: JwtHelper = new JwtHelper();
 
     constructor(public http: HttpClient, public storage:  StorageService){}
-    public auyhenticate(creds : CredenciaisDTO){
+    
+    public authenticate(creds : CredenciaisDTO){
         return this.http.post('http://localhost:8080/login',creds,{
             observe:'response',
             responseType:'text'
@@ -30,5 +31,13 @@ export class AuthService{
 
     logouth(){
         this.storage.setLocalUser(null);
+    }
+
+
+    public refreshToken(){
+        return this.http.post('http://localhost:8080/auth/refresh_token',{},{
+            observe:'response',
+            responseType:'text'
+        });
     }
 }
