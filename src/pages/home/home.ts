@@ -22,7 +22,7 @@ export class HomePage {
   //navegacao para tela de categorias
   public login(){
     this.auth.auyhenticate(this.creds).subscribe(response =>{
-      console.log(response.headers.get('Authorization'));
+      this.auth.sucessFullLogin(response.headers.get('Authorization'));
       this.navCtrl.setRoot(CategoriasPage);
     },
     error =>{}

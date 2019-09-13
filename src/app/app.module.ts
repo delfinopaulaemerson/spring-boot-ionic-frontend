@@ -1,3 +1,4 @@
+import { StorageService } from './../services/storage.services';
 import { AuthService } from './../services/auth.service';
 import { ErrorInterceptorProvider } from './../interceptors/error-interceptor';
 import { CategoriasPage } from './../pages/categorias/categorias';
@@ -40,6 +41,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
     CategoriaService,
     ErrorInterceptorProvider,
     AuthService,
+    StorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
