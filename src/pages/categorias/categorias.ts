@@ -1,3 +1,4 @@
+import { ProdutosPage } from './../produtos/produtos';
 import { CategriaDTO } from './../../models/categoria.dto';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -29,6 +30,10 @@ export class CategoriasPage {
     },
       error =>{});
    
+  }
+
+  showProdutos(){
+    this.navCtrl.push(ProdutosPage);
   }
 
 }

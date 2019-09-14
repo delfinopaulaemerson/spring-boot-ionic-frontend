@@ -1,3 +1,4 @@
+import { ProdutosPage } from './../pages/produtos/produtos';
 import { LogoutPage } from './../pages/logout/logout';
 import { ProfilePage } from './../pages/profile/profile';
 import { CategoriasPage } from './../pages/categorias/categorias';
@@ -25,6 +26,7 @@ export class MyApp {
     this.pages = [
       { title: 'Categorias', component: CategoriasPage },
       { title: 'Profile', component: ProfilePage },
+      { title: 'Produtos', component: ProdutosPage },
       { title: 'Logout', component: LogoutPage }
       
     ];

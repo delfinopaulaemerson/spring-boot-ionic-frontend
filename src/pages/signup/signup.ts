@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { CidadeDTO } from './../../models/cidade.dto';
 import { CidadeService } from './../../services/cidade.service';
@@ -68,9 +69,7 @@ updatecidades(){
     this.clienteservice.insertSusbscribe(this.formGroup.value);
       console.log("Cliente salvo com sucesso!")
       this.showInsertOk();
-  
-    
-     
+      this.navCtrl.setRoot(HomePage);
   }
   
   showInsertOk(){

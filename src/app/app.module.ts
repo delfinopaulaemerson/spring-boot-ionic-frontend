@@ -1,3 +1,4 @@
+import { ProdutosPage } from './../pages/produtos/produtos';
 import { CidadeService } from './../services/cidade.service';
 import { LogoutPage } from './../pages/logout/logout';
 //import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
@@ -28,7 +29,8 @@ import { EstadoService } from '../services/domain/estado.service';
     LogoutPage,
     CategoriasPage,
     ProfilePage,
-    SignupPage
+    SignupPage,
+    ProdutosPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { EstadoService } from '../services/domain/estado.service';
     LogoutPage,
      CategoriasPage,
      ProfilePage,
-     SignupPage
+     SignupPage,
+     ProdutosPage
   ],
   providers: [
     StatusBar,
