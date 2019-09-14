@@ -1,3 +1,4 @@
+import { CartPage } from './../pages/cart/cart';
 import { ProdutosPage } from './../pages/produtos/produtos';
 import { LogoutPage } from './../pages/logout/logout';
 import { ProfilePage } from './../pages/profile/profile';
@@ -25,6 +26,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Categorias', component: CategoriasPage },
+      { title: 'Carrinho', component: CartPage},
       { title: 'Profile', component: ProfilePage },
       { title: 'Produtos', component: ProdutosPage },
       { title: 'Logout', component: LogoutPage }
