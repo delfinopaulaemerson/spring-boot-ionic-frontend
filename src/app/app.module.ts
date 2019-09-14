@@ -1,3 +1,4 @@
+import { ProdutoService } from './../services/domain/produto.service';
 import { ProdutosPage } from './../pages/produtos/produtos';
 import { CidadeService } from './../services/cidade.service';
 import { LogoutPage } from './../pages/logout/logout';
@@ -58,6 +59,7 @@ import { EstadoService } from '../services/domain/estado.service';
     ClienteService,
     CidadeService,
     EstadoService,
+    ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
