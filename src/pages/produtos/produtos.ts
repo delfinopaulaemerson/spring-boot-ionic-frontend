@@ -23,8 +23,8 @@ export class ProdutosPage {
     });
   }
 
-  showDetail(){
-    this.navCtrl.push(ProdutodetailPage);
+  showDetail(produto_id:string){
+    this.navCtrl.push(ProdutodetailPage,{produto_id:produto_id});
   }
 
 }
