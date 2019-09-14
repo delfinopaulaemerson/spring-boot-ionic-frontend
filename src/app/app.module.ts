@@ -25,6 +25,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaService } from '../services/domain/categoria.service';
 import { SignupPage } from '../pages/signup/signup';
 import { EstadoService } from '../services/domain/estado.service';
+import { PickaddressPage } from '../pages/pickaddress/pickaddress';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EstadoService } from '../services/domain/estado.service';
     SignupPage,
     ProdutosPage,
     ProdutodetailPage,
-    CartPage
+    CartPage,
+    PickaddressPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { EstadoService } from '../services/domain/estado.service';
      SignupPage,
      ProdutosPage,
      ProdutodetailPage,
-     CartPage
+     CartPage,
+     PickaddressPage
   ],
   providers: [
     StatusBar,

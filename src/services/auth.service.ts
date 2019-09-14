@@ -1,3 +1,4 @@
+import { CartService } from './domain/cart.service';
 import { StorageService } from './storage.services';
 import { LocalUser } from './../models/local_user';
 import { CredenciaisDTO } from './../models/credenciais.dto';
@@ -10,7 +11,7 @@ export class AuthService{
 
     jwtHelper: JwtHelper = new JwtHelper();
 
-    constructor(public http: HttpClient, public storage:  StorageService){}
+    constructor(public http: HttpClient, public storage:  StorageService, public catservice:CartService){}
     
     public authenticate(creds : CredenciaisDTO){
         return this.http.post('http://localhost:8080/login',creds,{
@@ -27,6 +28,7 @@ export class AuthService{
             email: this.jwtHelper.decodeToken(tok).sub
         };
         this.storage.setLocalUser(user);
+        this.catservice.createOrClearCart();
     }
 
     logouth(){
