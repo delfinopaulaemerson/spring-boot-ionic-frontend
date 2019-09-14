@@ -4,20 +4,20 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form>
+  <form [formGroup]="formGroup" (ngSubmit)="signupUser(); $event.preventDefault()">
     <ion-item>
-      <ion-input placeholder="Nome*"  name="nome"></ion-input>
+      <ion-input type="text" placeholder="Nome*" formControlName="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Email*"  name="email"></ion-input>
+      <ion-input type="text" placeholder="Email*" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Senha*"  name="senha" type="password"></ion-input>
+      <ion-input type="text" placeholder="Senha*" formControlName="senha"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="CPF ou CNPJ*"  name="cpfoucnpj"></ion-input>
+      <ion-input type="text" placeholder="CPF ou CNPJ*" formControlName="cpfOuCnpj"></ion-input>
     </ion-item>
-    <ion-list radio-group name="tipo">
+    <ion-list radio-group formControlName="tipo">
       <ion-list-header style="text-align: center">
         Tipo de cliente
       </ion-list-header>
@@ -34,26 +34,40 @@
       Endereço
     </ion-list-header>
     <ion-item>
-    <ion-input placeholder="Logradouro*"  name="logradouro"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="Número*"  name="numero"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="Complemento*"  name="complemento"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="Bairro*"  name="bairro"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="CEP*"  name="cep"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="Telefone1*"  name="telefonr1"></ion-input>
-  </ion-item>
-   <ion-item>
-    <ion-input placeholder="Telefone2*"  name="Telefone2"></ion-input>
-  </ion-item>
-    <button ion-button block type="submit" >Criar conta</button>
+      <ion-input type="text" placeholder="Logradouro*" formControlName="logradouro"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Número*"  formControlName="numero"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" type="text" placeholder="Complemento*"  formControlName="complemento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Bairro*"  formControlName="bairro"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="CEP*"  formControlName="cep"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Telefone1*"  formControlName="telefone1"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-input type="text" placeholder="Telefone2*"  formControlName="telefone2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Estado*</ion-label>
+      <ion-select formControlName="estadoId">
+        <ion-option value="1" >Minas  Gerais</ion-option>
+        <ion-option value="2" >São Paula</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Cidade*</ion-label>
+      <ion-select formControlName="cidadeId">
+        <ion-option value="1" >Uberlandia</ion-option>
+        <ion-option value="2" >Campinas</ion-option>
+      </ion-select>
+    </ion-item>  
+  <button ion-button block type="submit" >Criar conta</button>
   </form>
 </ion-content>
