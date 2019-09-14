@@ -1,7 +1,8 @@
+import { ClienteService } from './../../services/domain/cliente.service';
 import { CidadeDTO } from './../../models/cidade.dto';
 import { CidadeService } from './../../services/cidade.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { EstadoService } from '../../services/domain/estado.service';
 import { EstadoDTO } from '../../models/estado.dto';
@@ -17,12 +18,14 @@ export class SignupPage {
   formGroup: FormGroup;
   estados : EstadoDTO[];
   cidades: CidadeDTO[];
-
+ 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private formBuilder: FormBuilder,
      public cidadeService: CidadeService,
-     public estadoService: EstadoService) {
+     public estadoService: EstadoService,
+     public clienteservice: ClienteService,
+     public alertCtrl:AlertController) {
 
       this.formGroup  =  this.formBuilder.group({
         nome: ['Joaquim', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
@@ -62,8 +65,23 @@ updatecidades(){
   });
 }
   public signupUser(){
-    console.log("pagina de cadastro!")
+    this.clienteservice.insertSusbscribe(this.formGroup.value);
+      console.log("Cliente salvo com sucesso!")
+      this.showInsertOk();
+  
+    
+     
   }
+  
+  showInsertOk(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Cliente Inserido com Sucesso.',
+      buttons:['OK']
+    });
+    alert.present();
+    return;
+  }    
 
 
 }

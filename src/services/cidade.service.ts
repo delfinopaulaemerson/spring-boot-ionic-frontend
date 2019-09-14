@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class CidadeService{
+  findEstados() {
+    throw new Error("Method not implemented.");
+  }
 
     constructor(public htttp:HttpClient){}
 
