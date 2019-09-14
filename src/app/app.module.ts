@@ -1,3 +1,4 @@
+import { CidadeService } from './../services/cidade.service';
 import { LogoutPage } from './../pages/logout/logout';
 //import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
 import { ProfilePage } from './../pages/profile/profile';
@@ -18,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaService } from '../services/domain/categoria.service';
 import { SignupPage } from '../pages/signup/signup';
+import { EstadoService } from '../services/domain/estado.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { SignupPage } from '../pages/signup/signup';
     AuthService,
     StorageService,
     ClienteService,
+    CidadeService,
+    EstadoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
