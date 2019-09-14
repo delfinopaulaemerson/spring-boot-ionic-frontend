@@ -33,24 +33,20 @@ export class HomePage {
       return;
     }
 
-    //this.auth.authenticate(this.creds).subscribe(response =>{
-      //this.auth.sucessFullLogin(response.headers.get('Authorization'));
-     
-   // },
-    //error =>{}
-    //);
-    this.navCtrl.setRoot(CategoriasPage);
+    this.auth.authenticate(this.creds).subscribe(resposta =>{
+      this.auth.sucessFullLogin(resposta.headers.get('Authorization'));
+      this.navCtrl.setRoot(CategoriasPage);
+    });
+    
   }
 
-  ionViewDidEnter(){
-     //this.auth.refreshToken().subscribe(response =>{
-      //this.auth.sucessFullLogin(response.headers.get('Authorization'));
+  //ionViewDidEnter(){
+    // this.auth.refreshToken().subscribe(response =>{
+     // this.auth.sucessFullLogin(response.headers.get('Authorization'));
       //this.navCtrl.setRoot(CategoriasPage);
-    //},
-   // error =>{}
-   // );
+  //});
 
-  }
+  //}
 
   public signUp(){
     this.navCtrl.push(SignupPage);

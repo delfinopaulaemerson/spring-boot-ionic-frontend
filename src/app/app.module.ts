@@ -1,5 +1,5 @@
 import { LogoutPage } from './../pages/logout/logout';
-import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
+//import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
 import { ProfilePage } from './../pages/profile/profile';
 import { ClienteService } from './../services/domain/cliente.service';
 import { StorageService } from './../services/storage.services';
@@ -46,7 +46,7 @@ import { SignupPage } from '../pages/signup/signup';
     StatusBar,
     SplashScreen,
     CategoriaService,
-    AuthenticationInterceptorProvider,
+    //AuthenticationInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
