@@ -1,3 +1,4 @@
+import { ProdutodetailPage } from './../pages/produtodetail/produtodetail';
 import { ProdutoService } from './../services/domain/produto.service';
 import { ProdutosPage } from './../pages/produtos/produtos';
 import { CidadeService } from './../services/cidade.service';
@@ -31,7 +32,8 @@ import { EstadoService } from '../services/domain/estado.service';
     CategoriasPage,
     ProfilePage,
     SignupPage,
-    ProdutosPage
+    ProdutosPage,
+    ProdutodetailPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { EstadoService } from '../services/domain/estado.service';
      CategoriasPage,
      ProfilePage,
      SignupPage,
-     ProdutosPage
+     ProdutosPage,
+     ProdutodetailPage
   ],
   providers: [
     StatusBar,

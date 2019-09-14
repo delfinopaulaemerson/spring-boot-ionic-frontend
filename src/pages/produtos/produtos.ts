@@ -1,3 +1,4 @@
+import { ProdutodetailPage } from './../produtodetail/produtodetail';
 import { ProdutoService } from './../../services/domain/produto.service';
 import { ProdutoDTO } from './../../models/produto.dto';
 import { Component } from '@angular/core';
@@ -20,6 +21,10 @@ export class ProdutosPage {
     this.service.findByCategoria(this.navParams.get('categoria_id')).subscribe(response =>{
       this.items = response['content'];
     });
+  }
+
+  showDetail(){
+    this.navCtrl.push(ProdutodetailPage);
   }
 
 }
