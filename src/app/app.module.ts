@@ -1,3 +1,5 @@
+import { CartPage } from './../pages/cart/cart';
+import { CartService } from './../services/domain/cart.service';
 import { ProdutodetailPage } from './../pages/produtodetail/produtodetail';
 import { ProdutoService } from './../services/domain/produto.service';
 import { ProdutosPage } from './../pages/produtos/produtos';
@@ -33,7 +35,8 @@ import { EstadoService } from '../services/domain/estado.service';
     ProfilePage,
     SignupPage,
     ProdutosPage,
-    ProdutodetailPage
+    ProdutodetailPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { EstadoService } from '../services/domain/estado.service';
      ProfilePage,
      SignupPage,
      ProdutosPage,
-     ProdutodetailPage
+     ProdutodetailPage,
+     CartPage
   ],
   providers: [
     StatusBar,
@@ -63,6 +67,7 @@ import { EstadoService } from '../services/domain/estado.service';
     CidadeService,
     EstadoService,
     ProdutoService,
+    CartService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
