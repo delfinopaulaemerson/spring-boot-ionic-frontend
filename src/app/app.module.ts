@@ -26,6 +26,7 @@ import { CategoriaService } from '../services/domain/categoria.service';
 import { SignupPage } from '../pages/signup/signup';
 import { EstadoService } from '../services/domain/estado.service';
 import { PickaddressPage } from '../pages/pickaddress/pickaddress';
+import { PaymentPage } from '../pages/payment/payment';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PickaddressPage } from '../pages/pickaddress/pickaddress';
     ProdutosPage,
     ProdutodetailPage,
     CartPage,
-    PickaddressPage
+    PickaddressPage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { PickaddressPage } from '../pages/pickaddress/pickaddress';
      ProdutosPage,
      ProdutodetailPage,
      CartPage,
-     PickaddressPage
+     PickaddressPage,
+     PaymentPage
   ],
   providers: [
     StatusBar,
