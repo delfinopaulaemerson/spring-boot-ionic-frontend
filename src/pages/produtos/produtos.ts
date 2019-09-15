@@ -13,7 +13,8 @@ import { CategoriasPage } from '../categorias/categorias';
 })
 export class ProdutosPage {
 
-  items : ProdutoDTO[];
+  items : ProdutoDTO[] = [];
+  page : number = 0;
 
   constructor(public alertCtrl:AlertController,
     public navCtrl: NavController,
@@ -23,23 +24,7 @@ export class ProdutosPage {
   }
 
   ionViewDidLoad() {
-    let categoria_id = this.navParams.get('categoria_id');
-    let loading = this.presentLoading();
-    if(categoria_id == undefined){
-      let alert = this.alertCtrl.create({
-        title: 'Categorias',
-        subTitle: 'Selecione o Produto em Categorias!',
-        buttons:['OK']
-      });
-      alert.present();
-      
-      return this.navCtrl.setRoot(CategoriasPage);
-    }
-
-    this.service.findByCategoria(categoria_id).subscribe(response =>{
-      this.items = response['content'];
-      loading.dismiss();
-    });
+    this.loadData();
   }
 
   showDetail(produto_id:string){
@@ -52,6 +37,44 @@ export class ProdutosPage {
     });
     loader.present();
     return loader;
+  }
+  loadData(){
+    let categoria_id = this.navParams.get('categoria_id');
+    let loading = this.presentLoading();
+    if(categoria_id == undefined){
+      let alert = this.alertCtrl.create({
+        title: 'Categorias',
+        subTitle: 'Selecione o Produto em Categorias!',
+        buttons:['OK']
+      });
+      alert.present();
+      
+      this.navCtrl.setRoot(CategoriasPage);
+    }
+
+    this.service.findByCategoria(categoria_id,this.page,10).subscribe(response =>{
+      this.items = this.items.concat(response['content']);
+      loading.dismiss();
+      console.log(this.page);
+      console.log(this.items);
+    });
+  }
+
+  doInfinite(infiniteScroll) {
+    this.page++;
+    this.loadData();
+    setTimeout(() => {
+      infiniteScroll.complete();
+    }, 1000);
+  }
+
+  doRefresh(refresher) {
+    this.page = 0;
+    this.items = [];
+    this.loadData();
+    setTimeout(() => {
+      refresher.complete();
+    }, 1000);
   }
 
 }
