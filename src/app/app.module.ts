@@ -1,3 +1,4 @@
+import { OrderconfirmationPage } from './../pages/orderconfirmation/orderconfirmation';
 import { CartPage } from './../pages/cart/cart';
 import { CartService } from './../services/domain/cart.service';
 import { ProdutodetailPage } from './../pages/produtodetail/produtodetail';
@@ -40,7 +41,8 @@ import { PaymentPage } from '../pages/payment/payment';
     ProdutodetailPage,
     CartPage,
     PickaddressPage,
-    PaymentPage
+    PaymentPage,
+    OrderconfirmationPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { PaymentPage } from '../pages/payment/payment';
      ProdutodetailPage,
      CartPage,
      PickaddressPage,
-     PaymentPage
+     PaymentPage,
+     OrderconfirmationPage
   ],
   providers: [
     StatusBar,

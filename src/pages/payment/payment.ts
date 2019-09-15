@@ -1,3 +1,4 @@
+import { OrderconfirmationPage } from './../orderconfirmation/orderconfirmation';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PedidoDTO } from './../../models/pedido.dto';
 import { Component } from '@angular/core';
@@ -30,7 +31,7 @@ export class PaymentPage {
 
   nextPage(){
     this.pedido.pagamento = this.formGroup.value;
-    console.log(this.pedido.pagamento);
+    this.navCtrl.setRoot(OrderconfirmationPage,{pedido:this.pedido});
   }
 
 

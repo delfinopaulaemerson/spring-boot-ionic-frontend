@@ -17,6 +17,12 @@ export class ClienteService{
         return this.http.get('http://localhost:8080/clientes/email?value='+email,{'headers': authHeaders});
     }
 
+    findById(id:string){
+        let token = this.storage.getLocalUser().token;
+        let authHeaders = new HttpHeaders({'Authorization': 'Bearer ' + token});
+        return this.http.get('http://localhost:8080/clientes/'+id,{'headers': authHeaders});
+    }
+
     insert(obj: ClienteDTO){
         this.http.post('http://localhost:8080/clientes',obj, {
             observe: 'response',
@@ -24,6 +30,7 @@ export class ClienteService{
         });
 
     }
+  
     
     insertMap(obj: ClienteDTO):Observable<any>{
        return  this.http.post('http://localhost:8080/clientes',obj).map((result: Response)=>result.json());
