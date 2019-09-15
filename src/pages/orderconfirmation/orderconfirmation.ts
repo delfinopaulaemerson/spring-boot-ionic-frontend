@@ -1,9 +1,10 @@
+import { PedidoService } from './../../services/domain/pedido.service';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { CartService } from './../../services/domain/cart.service';
 import { CartItem } from './../../models/cartitem';
 import { PedidoDTO } from './../../models/pedido.dto';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ClienteDTO } from '../../models/cliente.dto';
 import { EnderecoDTO } from '../../models/endereco.dto';
 import { CartPage } from '../cart/cart';
@@ -20,12 +21,15 @@ export class OrderconfirmationPage {
   cartItems: CartItem[];
   cliente: ClienteDTO;
   endereco: EnderecoDTO;
+  str:string;
   codpedido: string;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
     public cartservice:CartService,
-    public clienteservice:ClienteService) {
+    public clienteservice:ClienteService,
+    public alertCtrl:AlertController,
+    public pedidoservice:PedidoService) {
     this.pedido = this.navParams.get('pedido');
   }
 
@@ -43,7 +47,11 @@ export class OrderconfirmationPage {
   }
 
   checkout() {
-    this.codpedido = '';
+    this.pedidoservice.insertStandAlone(this.pedido).subscribe(response=>{
+      this.cartservice.createOrClearCart();
+      this.codpedido = this.extractId(response.headers.get('location'));
+    });
+   
   }
   private extractId(location : string) : string {
     let position = location.lastIndexOf('/');
@@ -60,5 +68,15 @@ export class OrderconfirmationPage {
   home() {
     this.navCtrl.setRoot(CategoriasPage);
   }
+
+  showInsertOk(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Pedido Inserido.',
+      buttons:['OK']
+    });
+    alert.present();
+    return;
+  }    
 
 }

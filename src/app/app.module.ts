@@ -28,6 +28,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { EstadoService } from '../services/domain/estado.service';
 import { PickaddressPage } from '../pages/pickaddress/pickaddress';
 import { PaymentPage } from '../pages/payment/payment';
+import { PedidoService } from '../services/domain/pedido.service';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { PaymentPage } from '../pages/payment/payment';
     EstadoService,
     ProdutoService,
     CartService,
+    PedidoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
