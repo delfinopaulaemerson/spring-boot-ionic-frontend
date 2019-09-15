@@ -11,10 +11,10 @@ export class ClienteService{
 
     constructor(public http:HttpClient, public storage: StorageService){}
 
-    findByEmail(email:string) : Observable<ClienteDTO>{
+    findByEmail(email:string){
         let token = this.storage.getLocalUser().token;
         let authHeaders = new HttpHeaders({'Authorization': 'Bearer ' + token});
-        return this.http.get<ClienteDTO>('http://localhost:8080/clientes/email?value='+email,{'headers': authHeaders});
+        return this.http.get('http://localhost:8080/clientes/email?value='+email,{'headers': authHeaders});
     }
 
     insert(obj: ClienteDTO){

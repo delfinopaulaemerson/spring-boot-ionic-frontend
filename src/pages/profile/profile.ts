@@ -22,7 +22,7 @@ export class ProfilePage {
    let localUser = this.storage.getLocalUser();
    if(localUser && localUser.email){
         this.service.findByEmail(localUser.email).subscribe(response => {
-          this.cliente = response;
+          this.cliente = response as ClienteDTO;
         },
         error =>{
           if(error.status == 403){

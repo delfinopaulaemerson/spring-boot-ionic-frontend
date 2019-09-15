@@ -1,6 +1,9 @@
+import { StorageService } from './../../services/storage.services';
+import { ClienteService } from './../../services/domain/cliente.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EnderecoDTO } from '../../models/endereco.dto';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -10,45 +13,19 @@ import { EnderecoDTO } from '../../models/endereco.dto';
 export class PickaddressPage {
 items : EnderecoDTO[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:StorageService, public service : ClienteService) {
   }
 
   ionViewDidLoad() {
-    this.items =[ {
-      id:"1",
-      logradouro:"rua a",
-      numero:"4",
-      complemento:"casa",
-      bairro:"são cristovão",
-      cep:"20921080",
-      cidade : {
-        id:"1",
-        nome:"Uberlandia",
-        estado :{
-          id:"1",
-          nome:"Minas Gerais"
-        }
-      }
-    },{
-      id:"2",
-      logradouro:"rua b",
-      numero:"4",
-      complemento:"apartamento",
-      bairro:"copacabana",
-      cep:"20921000",
-      cidade : {
-        id:"2",
-        nome:"Rio de janeiro",
-        estado :{
-          id:"2",
-          nome:"Rio de Janeiro"
-        }
-      }
-    }];
-   
-  }
+    let localUser = this.storage.getLocalUser();
+    if(localUser && localUser.email){
+         this.service.findByEmail(localUser.email).subscribe(response => {
+           this.items = response['enderecos'];
+         });
+    }
+   }
 
-  nextPage(Endereco: EnderecoDTO){
+  nextPage(item: EnderecoDTO){
 
   }
 
