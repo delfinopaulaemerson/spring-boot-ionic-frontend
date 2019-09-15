@@ -1,3 +1,4 @@
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HomePage } from './../home/home';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { StorageService } from './../../services/storage.services';
@@ -14,8 +15,9 @@ import { ClienteDTO } from '../../models/cliente.dto';
 export class ProfilePage {
 
   cliente: ClienteDTO;
-
-  constructor(public service: ClienteService,public navCtrl: NavController, public navParams: NavParams,public storage: StorageService ) {
+  picture: string;
+  cameraOn: boolean = false;
+  constructor(public service: ClienteService,public navCtrl: NavController, public navParams: NavParams,public storage: StorageService, public cameraservice:Camera ) {
   }
 
   ionViewDidLoad() {
@@ -30,6 +32,25 @@ export class ProfilePage {
           }
         });
    }
+  }
+
+  getCameraPicture() {
+
+    this.cameraOn = true;
+
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.cameraservice.DestinationType.DATA_URL,
+      encodingType: this.cameraservice.EncodingType.PNG,
+      mediaType: this.cameraservice.MediaType.PICTURE
+    }
+    
+    this.cameraservice.getPicture(options).then((imageData) => {
+     this.picture = 'data:image/png;base64,' + imageData;
+     this.cameraOn = false;
+    }, (err) => {
+      this.cameraOn = false;
+    });
   }
 
 }

@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera/ngx';
 import { OrderconfirmationPage } from './../pages/orderconfirmation/orderconfirmation';
 import { CartPage } from './../pages/cart/cart';
 import { CartService } from './../services/domain/cart.service';
@@ -6,7 +7,6 @@ import { ProdutoService } from './../services/domain/produto.service';
 import { ProdutosPage } from './../pages/produtos/produtos';
 import { CidadeService } from './../services/cidade.service';
 import { LogoutPage } from './../pages/logout/logout';
-//import { AuthenticationInterceptorProvider } from './../interceptors/auth-interceptor';
 import { ProfilePage } from './../pages/profile/profile';
 import { ClienteService } from './../services/domain/cliente.service';
 import { StorageService } from './../services/storage.services';
@@ -29,6 +29,7 @@ import { EstadoService } from '../services/domain/estado.service';
 import { PickaddressPage } from '../pages/pickaddress/pickaddress';
 import { PaymentPage } from '../pages/payment/payment';
 import { PedidoService } from '../services/domain/pedido.service';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +70,6 @@ import { PedidoService } from '../services/domain/pedido.service';
     StatusBar,
     SplashScreen,
     CategoriaService,
-    //AuthenticationInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
@@ -79,7 +79,8 @@ import { PedidoService } from '../services/domain/pedido.service';
     ProdutoService,
     CartService,
     PedidoService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera
   ]
 })
 export class AppModule {}
